@@ -1,0 +1,24 @@
+//
+//  Extensions.swift
+//  HasToHappen
+//
+//  Created by Geert-Jan Knapen on 28/12/2023.
+//
+
+import Foundation
+
+// add an asDictionary func that returns any encodable struct as a dictionary
+extension Encodable {
+    func asDictionary() -> [String: Any] {
+        guard let data = try? JSONEncoder().encode(self) else {
+            return [:]
+        }
+        
+        do {
+            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+            return json ?? [:]
+        } catch {
+            return [:]
+        }
+    }
+}

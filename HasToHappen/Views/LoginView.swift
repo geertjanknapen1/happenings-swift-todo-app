@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var showAlert = false
     @StateObject var vm = LoginViewViewModel()
     
     var body: some View {
@@ -16,21 +17,28 @@ struct LoginView: View {
                 // Header
                 PartialHeaderView(title: "Has to happen", subtitle: "Your simple to-do list", rotationAngle: -15)
                 
-                // Login Form
                 Form {
                     TextField("Email", text: $vm.email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .autocorrectionDisabled()
                         .autocapitalization(.none)
+                        .foregroundColor(.appText)
                     
                     SecureField("Password", text: $vm.password)
                         .textFieldStyle(DefaultTextFieldStyle())
+                        .foregroundColor(.appText)
                     
                     
                     PartialButton(color: Color.green, textColor: Color.white, text: "Log in") {
-                        // Attempt login
+                        vm.login()
                     }
                     .padding(10)
+                    
+                    // Create nicer error messages
+                    if !vm.errMsg.isEmpty {
+                        Text(vm.errMsg)
+                            .foregroundColor(.red)
+                    }
                 }
                 .scrollContentBackground(.hidden)
                 .foregroundColor(.appBackground)

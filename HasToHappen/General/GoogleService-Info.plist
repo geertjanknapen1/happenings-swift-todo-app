@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAXD9jgO90y5z9eonCrPK1AvUMNOlJJzk0</string>
+	<string>AIzaSyChQYkpEHr3VDj1oOjyowW9skUx8FUjxiw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>308793260833</string>
+	<string>505648689804</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>nl.geertjanknapen.HasToHappen</string>
 	<key>PROJECT_ID</key>
-	<string>hastohappen-8dff3</string>
+	<string>hastohappen-a3c4e</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hastohappen-8dff3.appspot.com</string>
+	<string>hastohappen-a3c4e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:308793260833:ios:e7fdf8b033b38f12691c60</string>
+	<string>1:505648689804:ios:d4dec98915ef945cb581a9</string>
 </dict>
 </plist>
