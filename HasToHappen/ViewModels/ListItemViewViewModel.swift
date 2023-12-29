@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+/// Viewmodel for single item in a List
+class ListItemViewViewModel: ObservableObject {
+    init() {}
+}

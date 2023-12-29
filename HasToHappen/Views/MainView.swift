@@ -12,9 +12,24 @@ struct MainView: View {
     
     var body: some View {
         if vm.isSignedIn, !vm.currentUserId.isEmpty {
-            ItemListView()
+            mainBottomView
         } else {
             LoginView()
+        }
+    }
+    
+    @ViewBuilder
+    var mainBottomView: some View {
+        TabView {
+            ItemListView(userId: vm.currentUserId)
+                .tabItem {
+                    Label("Happenings", systemImage: "list.bullet.clipboard")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Label("Account", systemImage: "person.crop.circle")
+                }
         }
     }
 }

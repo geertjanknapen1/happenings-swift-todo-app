@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct ItemListView: View {
+    @StateObject var vm = ItemListViewViewModel()
+    private let userId: String
+    
+    init(userId: String) {
+        self.userId = userId
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                
+            }
+            .navigationTitle("Happenings")
+            .toolbar{
+                Button {
+                    // Action here
+                    vm.showingNewItemView = true
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(.green)
+                        .bold()
+                        .font(.system(size: 25))
+                }
+            }
+            .sheet(isPresented: $vm.showingNewItemView) {
+                NewItemView(newItemPresented:  $vm.showingNewItemView)
+            }
+        }
     }
 }
 
 #Preview {
-    ItemListView()
+    ItemListView(userId: "")
 }
