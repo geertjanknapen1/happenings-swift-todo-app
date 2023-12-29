@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ListItemView: View {
+    @StateObject var vm = ListItemViewViewModel()
+    
+    let item: HappeningItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(item.title)
+                    .foregroundColor(.appText)
+                    .font(.title3)
+                
+                Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .shortened))")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            
+            Spacer()
+            
+            Button {
+                vm.toggleCompleted(item: item)
+            } label: {
+                Image(systemName: item.completed ? "checkmark.circle.fill" : "circle")
+            }
+        }
     }
 }
 
 #Preview {
-    ListItemView()
+    ListItemView(item: .init(id: "123", title: "Get eggs", dueDate: Date().timeIntervalSince1970, createdDate: Date().timeIntervalSince1970, completed: false))
 }

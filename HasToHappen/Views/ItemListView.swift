@@ -5,20 +5,30 @@
 //  Created by Geert-Jan Knapen on 27/12/2023.
 //
 
+import FirebaseFirestoreSwift
 import SwiftUI
 
 struct ItemListView: View {
     @StateObject var vm = ItemListViewViewModel()
-    private let userId: String
+    @FirestoreQuery var happenings: [HappeningItem]
     
     init(userId: String) {
-        self.userId = userId
+        self._happenings = FirestoreQuery(collectionPath: "users/\(userId)/happenings")
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                
+                List(happenings) { happening in
+                    ListItemView(item: happening)
+                        .swipeActions {
+                            Button("Delete") {
+                                vm.delete(id: happening.id)
+                            }
+                            .background(.red)
+                        }
+                }
+                .listStyle(PlainListStyle())
             }
             .navigationTitle("Happenings")
             .toolbar{
@@ -40,5 +50,5 @@ struct ItemListView: View {
 }
 
 #Preview {
-    ItemListView(userId: "")
+    ItemListView(userId: "TVJTqQw34rYZdYPmbVIJH7PdC1P2")
 }

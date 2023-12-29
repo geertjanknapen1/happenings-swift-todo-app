@@ -26,10 +26,10 @@ class NewItemViewViewModel: ObservableObject {
         }
         
         let happeningId = UUID().uuidString
-        let happening = happeningItem(
+        let happening = HappeningItem(
             id: happeningId,
             title: title,
-            dueData: dueDate.timeIntervalSince1970,
+            dueDate: dueDate.timeIntervalSince1970,
             createdDate: Date().timeIntervalSince1970,
             completed: false
         )

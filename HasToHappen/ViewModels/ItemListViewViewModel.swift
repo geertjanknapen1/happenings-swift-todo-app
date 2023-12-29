@@ -13,4 +13,8 @@ class ItemListViewViewModel: ObservableObject {
     
     init() {}
     
+    func delete(id: String) {
+        
+    }
+    
 }

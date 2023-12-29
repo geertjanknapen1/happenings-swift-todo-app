@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct happeningItem: Codable, Identifiable {
+struct HappeningItem: Codable, Identifiable {
     let id: String
     let title: String
-    let dueData: TimeInterval
+    let dueDate: TimeInterval
     let createdDate: TimeInterval
     var completed: Bool
     
