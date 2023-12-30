@@ -18,10 +18,12 @@ struct ListItemView: View {
                 Text(item.title)
                     .foregroundColor(.appText)
                     .font(.title3)
+                    .strikethrough(item.completed)
                 
                 Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.secondary)
+                    .strikethrough(item.completed)
             }
             
             Spacer()
