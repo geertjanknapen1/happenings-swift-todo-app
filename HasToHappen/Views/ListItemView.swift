@@ -30,8 +30,11 @@ struct ListItemView: View {
                 vm.toggleCompleted(item: item)
             } label: {
                 Image(systemName: item.completed ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(.green)
+                    .font(.system(size: 25))
             }
         }
+        .padding()
     }
 }
 

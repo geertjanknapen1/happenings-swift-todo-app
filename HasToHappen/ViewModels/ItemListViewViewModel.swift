@@ -20,7 +20,6 @@ class ItemListViewViewModel: ObservableObject {
     
     /// Delete happening Item from DB
     func delete(id: String) {
-        // 2:15 minuten
         let db = Firestore.firestore()
 
         db.collection("users")
